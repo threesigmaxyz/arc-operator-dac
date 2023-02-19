@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.4"
 services:
   committee-aerospike:
     image: aerospike/aerospike-server:5.7.0.12
@@ -7,7 +7,7 @@ services:
       - "3000:3000"
     volumes:
       - ./aerospike.conf:/etc/aerospike.conf:ro
-      - <host volume>:/opt/aerospike/data/
+      - ./aerospike:/opt/aerospike/data/
     environment:
       - NAMESPACE=starkware
     ulimits:
@@ -16,14 +16,21 @@ services:
         hard: 15000
 
   committee:
+    image: threesigmaxyz/starkex-ragnarok-dac:${RELEASE_VERSION:-1.0.0}
     build:
       dockerfile: Dockerfile
       context: ./
+      target: runtime
     volumes:
       - ./config.yml:/config.yml:ro
-      - ./private_key.txt:/private_key.txt:ro
-      - ./certs/user.crt:/certs/user.crt
-      - ./certs/server.crt:/certs/server.crt
-      - ./certs/user.key:/certs/user.key
+      - ./mtls:/mtls
+
     depends_on:
       - committee-aerospike
+
+  committee-unit-tests:
+    image: threesigmaxyz/starkex-ragnarok-dac-unit-tests:${RELEASE_VERSION:-1.0.0}
+    build:
+      dockerfile: Dockerfile
+      context: ./
+      target: unit-tests
