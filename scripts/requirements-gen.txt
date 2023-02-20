@@ -21,7 +21,8 @@ prometheus-client
 pytest
 pytest-asyncio
 pytest-cov
-PyYAML>=5.3.1,<5.4
+PyYAML==6.0
+redis==4.5.1
 sphinx
 sympy
 Web3==5.16.0

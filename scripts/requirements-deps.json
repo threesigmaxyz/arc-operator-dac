@@ -40,7 +40,7 @@
     {
         "dependencies": [],
         "package": {
-            "installed_version": "5.3.1",
+            "installed_version": "6.0",
             "key": "pyyaml",
             "package_name": "PyYAML"
         }

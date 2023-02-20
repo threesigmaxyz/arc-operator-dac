@@ -9,7 +9,7 @@ setup(
         "fastecdsa>=2",
         "marshmallow-dataclass>=8.0.0",
         "marshmallow>=3.8.0",
-        "PyYAML>=5.3.1",
+        "PyYAML==6.0",
         "requests>=2.24.0",
     ],
 )
