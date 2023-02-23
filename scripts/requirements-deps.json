@@ -167,6 +167,14 @@
         }
     },
     {
+        "dependencies": [],
+        "package": {
+            "installed_version": "4.5.1",
+            "key": "redis",
+            "package_name": "redis"
+        }
+    },
+    {
         "dependencies": [
             {
                 "installed_version": "3.7.4.post0",

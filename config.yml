@@ -50,6 +50,7 @@ LOGGING:
       level: DEBUG
 
 STORAGE:
-  ## TODO Confirm proper local storage
-  class: starkware.storage.dict_storage.DictStorage
+  class: starkware.storage.redis_storage.RedisStorage
+  config:
+    db: 2
 
