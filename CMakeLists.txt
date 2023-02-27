@@ -20,3 +20,9 @@ add_subdirectory(src/starkware/python)
 add_subdirectory(src/starkware/starkware_utils)
 add_subdirectory(src/starkware/storage)
 add_subdirectory(src/services/perpetual)
+
+# # Unit tests
+# add_test (NAME python-tests
+#   COMMAND ${PYTHON_EXECUTABLE} -m pytest ${CMAKE_CURRENT_SOURCE_DIR}
+#   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/src/starkware
+# )

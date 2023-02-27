@@ -43,6 +43,7 @@ python_lib(starkware_committee_lib
     starkware_starkex_constants_lib
     starkware_storage_aerospike_lib
     starkware_storage_lib
+    starkware_storage_redis_lib
     starkware_utils_lib
     pip_requests
 )

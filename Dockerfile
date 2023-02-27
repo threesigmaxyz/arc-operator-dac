@@ -1,4 +1,4 @@
-FROM ciimage/python:3.7
+FROM ciimage/python:3.7 as build
 
 RUN apt update
 RUN apt -y -o Dpkg::Options::="--force-overwrite" install python3.7-dev
@@ -12,6 +12,11 @@ COPY . /app/
 WORKDIR /app/
 RUN ./build.sh
 
-WORKDIR /app/
+FROM build as unit-tests
 
+CMD ["ctest"]
+
+FROM build as runtime
+
+WORKDIR /app/
 CMD ["/app/build/Release/src/starkware/committee/starkex_committee_exe"]

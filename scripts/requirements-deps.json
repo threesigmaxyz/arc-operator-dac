@@ -40,7 +40,7 @@
     {
         "dependencies": [],
         "package": {
-            "installed_version": "5.3.1",
+            "installed_version": "6.0",
             "key": "pyyaml",
             "package_name": "PyYAML"
         }
@@ -164,6 +164,14 @@
             "installed_version": "4.0.0",
             "key": "aerospike",
             "package_name": "aerospike"
+        }
+    },
+    {
+        "dependencies": [],
+        "package": {
+            "installed_version": "4.5.1",
+            "key": "redis",
+            "package_name": "redis"
         }
     },
     {

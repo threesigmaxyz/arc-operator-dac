@@ -21,7 +21,7 @@ def load_config(
     config_file_path: Optional[str] = None, load_logging_config: Optional[bool] = True
 ) -> dict:
     if config_file_path is None:
-        config_file_path = "/config.yml"
+        config_file_path = "config.yml"
 
     config = yaml.safe_load(open(config_file_path, "r"))
     if load_logging_config:
