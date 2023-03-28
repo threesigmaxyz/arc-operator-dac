@@ -22,7 +22,7 @@ services:
       - "6379:6379"
 
   committee:
-    image: threesigmaxyz/starkex-ragnarok-dac:${RELEASE_VERSION:-1.0.0}
+    image: threesigmaxyz/starkexpress-operator-dac:${RELEASE_VERSION:-1.0.0}
     build:
       dockerfile: Dockerfile
       context: ./
@@ -35,7 +35,7 @@ services:
       - committee-aerospike
 
   committee-unit-tests:
-    image: threesigmaxyz/starkex-ragnarok-dac-unit-tests:${RELEASE_VERSION:-1.0.0}
+    image: threesigmaxyz/starkexpress-operator-dac-unit-tests:${RELEASE_VERSION:-1.0.0}
     build:
       dockerfile: Dockerfile
       context: ./

@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: threesigmalabs.azurecr.io
-  DAC_IMAGE_NAME: threesigmaxyz/starkex-ragnarok-dac
+  DAC_IMAGE_NAME: threesigmaxyz/starkexpress-operator-dac
 
 jobs:
   release:
@@ -59,7 +59,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: main
-          repository: threesigmaxyz/starkex-ragnarok-apicharts
+          repository: threesigmaxyz/starkexpress-operator-charts
           path: helm
           token: ${{ secrets.GH_TOKEN_FOR_CHARTS_UPDATE  }}
 
@@ -67,7 +67,7 @@ jobs:
         uses: fjogeleit/yaml-update-action@main
         with:
           value: ${{ needs.release.outputs.release_version }}
-          repository: threesigmaxyz/starkex-ragnarok-apicharts
+          repository: threesigmaxyz/starkexpress-operator-charts
           masterBranchName: main
           branch: deployment/${{ needs.release.outputs.release_version }}
           targetBranch: main
@@ -78,7 +78,7 @@ jobs:
           noCompatMode: false
           changes: |
             {
-              "starkex-ragnarok-dac/values.yaml": {
+              "starkexpress-operator-dac/values.yaml": {
                 "image.tag": "${{ needs.release.outputs.release_version }}"
               }
             }
